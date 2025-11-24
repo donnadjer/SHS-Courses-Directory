@@ -7,6 +7,9 @@ import SchoolCard from './components/SchoolCard';
 import AddSchoolForm from './components/AddSchoolForm';
 import SchoolDetails from './components/SchoolDetails';
 import AdPlaceholder from './components/AdPlaceholder';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import { INITIAL_SCHOOLS, CATEGORIES, REGIONS } from './constants';
 import { School, CourseCategory } from './types';
 
@@ -240,22 +243,49 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
+      <div className="min-h-screen bg-gray-50 font-sans text-gray-900 flex flex-col">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home schools={schools} />} />
-          <Route path="/category/:categoryId" element={<CategoryView schools={schools} />} />
-          <Route path="/school/:schoolId" element={<SchoolDetails schools={schools} />} />
-          <Route path="/add" element={<AddSchoolForm onAddSchool={addSchool} />} />
-        </Routes>
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home schools={schools} />} />
+            <Route path="/category/:categoryId" element={<CategoryView schools={schools} />} />
+            <Route path="/school/:schoolId" element={<SchoolDetails schools={schools} />} />
+            <Route path="/add" element={<AddSchoolForm onAddSchool={addSchool} />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+          </Routes>
+        </div>
         
-        <footer className="bg-white border-t border-gray-200 py-12 mt-auto">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <p className="text-gray-500">© 2024 Ghana SHS Directory. Promoting Education in Ghana.</p>
-            <div className="flex justify-center gap-4 mt-4">
-              <div className="w-3 h-3 rounded-full bg-gh-red"></div>
-              <div className="w-3 h-3 rounded-full bg-gh-yellow"></div>
-              <div className="w-3 h-3 rounded-full bg-gh-green"></div>
+        <footer className="bg-white border-t border-gray-200 py-12">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-4">Ghana SHS Directory</h3>
+                <p className="text-gray-500 text-sm">
+                  Connecting students to their future. The comprehensive guide to senior high schools in Ghana.
+                </p>
+              </div>
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-bold text-gray-900 mb-2">Links</h3>
+                <Link to="/" className="text-gray-500 hover:text-gh-red text-sm">Home</Link>
+                <Link to="/about" className="text-gray-500 hover:text-gh-red text-sm">About Us</Link>
+                <Link to="/contact" className="text-gray-500 hover:text-gh-red text-sm">Contact Us</Link>
+              </div>
+              <div className="flex flex-col space-y-2">
+                <h3 className="font-bold text-gray-900 mb-2">Legal</h3>
+                <Link to="/privacy" className="text-gray-500 hover:text-gh-red text-sm">Privacy Policy</Link>
+                <span className="text-gray-400 text-sm cursor-not-allowed">Terms of Service</span>
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-100 pt-8 text-center">
+              <p className="text-gray-500 text-sm">© 2024 Ghana SHS Directory. Promoting Education in Ghana.</p>
+              <div className="flex justify-center gap-4 mt-4">
+                <div className="w-3 h-3 rounded-full bg-gh-red"></div>
+                <div className="w-3 h-3 rounded-full bg-gh-yellow"></div>
+                <div className="w-3 h-3 rounded-full bg-gh-green"></div>
+              </div>
             </div>
           </div>
         </footer>

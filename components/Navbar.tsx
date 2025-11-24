@@ -17,7 +17,13 @@ const Navbar: React.FC = () => {
               </span>
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-1 sm:space-x-4">
+            <Link 
+              to="/about" 
+              className="text-gray-600 hover:text-gh-red px-3 py-2 rounded-md text-sm font-medium transition-colors hidden sm:block"
+            >
+              About
+            </Link>
              <Link 
               to="/" 
               className="text-gray-600 hover:text-gh-red px-3 py-2 rounded-md text-sm font-medium transition-colors"
@@ -29,7 +35,8 @@ const Navbar: React.FC = () => {
               className="inline-flex items-center gap-2 bg-gh-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
             >
               <PlusCircle size={16} />
-              Add School
+              <span className="hidden sm:inline">Add School</span>
+              <span className="sm:hidden">Add</span>
             </Link>
           </div>
         </div>
