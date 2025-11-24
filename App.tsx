@@ -6,6 +6,7 @@ import CategoryCard from './components/CategoryCard';
 import SchoolCard from './components/SchoolCard';
 import AddSchoolForm from './components/AddSchoolForm';
 import SchoolDetails from './components/SchoolDetails';
+import AdPlaceholder from './components/AdPlaceholder';
 import { INITIAL_SCHOOLS, CATEGORIES, REGIONS } from './constants';
 import { School, CourseCategory } from './types';
 
@@ -116,6 +117,9 @@ const Home: React.FC<{ schools: School[] }> = ({ schools }) => {
                 </button>
              </div>
              
+             {/* Ad Placeholder inside search results */}
+             <AdPlaceholder className="w-full h-24 mb-8" slotName="Search Results Top Banner" />
+
              {filteredSchools.length > 0 ? (
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                  {filteredSchools.map(school => (
@@ -151,6 +155,9 @@ const Home: React.FC<{ schools: School[] }> = ({ schools }) => {
                 ))}
               </div>
             </section>
+
+            {/* Ad Placeholder between sections */}
+            <AdPlaceholder className="w-full h-32" slotName="Home Middle Banner" />
 
             {/* Featured Schools Section */}
             <section>
@@ -192,6 +199,9 @@ const CategoryView: React.FC<{ schools: School[] }> = ({ schools }) => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Ad Placeholder Top of Category */}
+        <AdPlaceholder className="w-full h-24 mb-8" slotName="Category Top Banner" />
+
         <h2 className="text-xl font-semibold text-gray-700 mb-8 flex items-center gap-2">
           Schools offering {category.name} 
           <span className="bg-gray-200 text-gray-700 py-1 px-3 rounded-full text-sm">{categorySchools.length}</span>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { School } from '../types';
 import { MapPin, Globe, ArrowLeft, GraduationCap, BookOpen, Calendar, Info } from 'lucide-react';
+import AdPlaceholder from './AdPlaceholder';
 
 interface SchoolDetailsProps {
   schools: School[];
@@ -111,6 +112,9 @@ const SchoolDetails: React.FC<SchoolDetailsProps> = ({ schools }) => {
               )}
             </div>
 
+            {/* In-Content Ad Placeholder */}
+            <AdPlaceholder className="w-full h-32" slotName="Content Banner" />
+
             {/* Courses Section */}
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
               <div className="flex items-center gap-3 mb-6">
@@ -159,8 +163,9 @@ const SchoolDetails: React.FC<SchoolDetailsProps> = ({ schools }) => {
                 </div>
               </div>
               
-              <div className="mt-8 p-4 bg-gray-50 rounded-xl text-sm text-gray-500 text-center">
-                 Reviewing schools helps future students make better choices.
+              <div className="mt-6">
+                 {/* Sidebar Ad Placeholder */}
+                 <AdPlaceholder className="w-full h-64" slotName="Sidebar Rectangle" />
               </div>
             </div>
           </div>
